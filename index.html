@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Adithi M Shrouthy | Data-Centric Full-Stack Developer</title>
     <style>
         * {
@@ -80,6 +83,7 @@
             text-align: center;
             color: white;
             padding: 2rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         .hero-content h1 {
@@ -511,6 +515,10 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .skills-grid, .projects-grid, .education-grid, .cert-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -577,7 +585,7 @@
                 </div>
                 <div class="skill-category">
                     <h3>Backend</h3>
-                    <div class="skill-item">Node.js/Express</div>
+                    <div class="div class="skill-item">Node.js/Express</div>
                     <div class="skill-item">Python (Flask/FastAPI)</div>
                     <div class="skill-item">REST APIs</div>
                     <div class="skill-item">GraphQL</div>
@@ -817,7 +825,6 @@
         // Observe experience items
         document.querySelectorAll('.experience-item').forEach((item, index) => {
             item.style.animationDelay = `${index * 0.2}s`;
-            observer.observe(item);
         });
     </script>
 </body>
