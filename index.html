@@ -1,831 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>Adithi M Shrouthy | Data-Centric Full-Stack Developer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #6366f1;
-            --secondary: #8b5cf6;
-            --accent: #ec4899;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        nav.visible {
-            transform: translateY(0);
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: var(--dark);
-            text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 2rem 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #fff, #a7f3d0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-content .title {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            margin-bottom: 1rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero-content .tagline {
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            margin-bottom: 2rem;
-            opacity: 0.8;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .hero-content .location {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.8s both;
-        }
-
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-            padding: 0.7rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 0;
-            background: var(--light);
-        }
-
-        section:nth-child(even) {
-            background: white;
-        }
-
-        section h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* About Section */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--gray);
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.3);
-        }
-
-        .skill-category h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .skill-item {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            color: var(--dark);
-            padding: 0.5rem 1rem;
-            background: var(--light);
-            border-radius: 10px;
-            border-left: 3px solid var(--primary);
-        }
-
-        /* Experience Section */
-        .experience-timeline {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-            border-radius: 10px;
-        }
-
-        .experience-item {
-            margin-bottom: 4rem;
-            position: relative;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .experience-item:nth-child(odd) {
-            padding-right: 50%;
-            text-align: right;
-        }
-
-        .experience-item:nth-child(even) {
-            padding-left: 50%;
-            text-align: left;
-        }
-
-        .experience-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 2px solid transparent;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .experience-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.3);
-            border-color: var(--primary);
-        }
-
-        .experience-card::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 30px;
-            height: 30px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
-        }
-
-        .experience-item:nth-child(odd) .experience-card::before {
-            right: -66px;
-            transform: translateY(-50%);
-        }
-
-        .experience-item:nth-child(even) .experience-card::before {
-            left: -66px;
-            transform: translateY(-50%);
-        }
-
-        .experience-card .company {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-card .role {
-            font-size: 1.2rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-card .duration {
-            color: var(--gray);
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .experience-card .location {
-            color: var(--gray);
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-
-        .experience-card .summary {
-            color: var(--dark);
-            line-height: 1.7;
-            white-space: pre-line;
-        }
-
-        .badge-current {
-            display: inline-block;
-            background: linear-gradient(45deg, #10b981, #059669);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-left: 0.5rem;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.3);
-            border-color: var(--secondary);
-        }
-
-        .project-card h3 {
-            color: var(--dark);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .project-card .stack {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .project-card .results {
-            color: var(--gray);
-            line-height: 1.7;
-            white-space: pre-line;
-        }
-
-        /* Education & Certifications */
-        .education-grid, .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .education-card, .cert-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-        }
-
-        .education-card:hover, .cert-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(236, 72, 153, 0.3);
-        }
-
-        .education-card h3, .cert-card h3 {
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
-        }
-
-        .education-card .institution {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .education-card .years {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        .cert-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-        }
-
-        /* Extracurricular */
-        .extra-list {
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-
-        .extra-item {
-            background: white;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid var(--accent);
-            transition: all 0.3s;
-        }
-
-        .extra-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
-        }
-
-        /* Contact Section */
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-info {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-
-        .contact-info p {
-            margin: 1rem 0;
-            font-size: 1.1rem;
-            color: var(--dark);
-        }
-
-        .contact-info a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .experience-timeline::before {
-                left: 20px;
-            }
-
-            .experience-item:nth-child(odd),
-            .experience-item:nth-child(even) {
-                padding-left: 60px;
-                padding-right: 0;
-                text-align: left;
-            }
-
-            .experience-item:nth-child(odd) .experience-card::before,
-            .experience-item:nth-child(even) .experience-card::before {
-                left: -46px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .social-links {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .skills-grid, .projects-grid, .education-grid, .cert-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adithi M Shrouthy Portfolio</title>
+  <meta name="description" content="Resume-style one page portfolio for Adithi M Shrouthy, data-focused full-stack developer and QA engineer based in Mannheim." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="container">
+  <header class="site-header">
+    <div class="shell header-bar">
+      <a class="brand" href="#home" aria-label="Adithi home">
+        <span class="brand-mark"></span>
+        Adithi M Shrouthy
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <button class="hamburger" aria-expanded="false" aria-controls="site-menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="site-menu">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">Story</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#resume">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Connect</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel hero" id="home" data-color="#f4efe9">
+      <div class="shell hero-layout">
+        <div class="hero-text" data-animate>
+          <p class="eyebrow">Software Development · QA · Automation</p>
+          <h1>
+            Building thoughtful systems with data.
+          </h1>
+          <p class="lede">
+            Motivated software engineer with  M.Sc. in Applied Computer Science (Usability Engineering & UX Design). I specialize in Frontend Development, Functional and Non Functional Testing and CI/CD, pairing design thinking with testing rigor to lift coverage, accelerate release cadences.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="assets/resume.pdf">Resume</a>
+            <a class="btn ghost" href="#projects">View Projects</a>
+          </div>
+        </div>
+        <div class="hero-sidebar">
+          <div class="hero-card hero-photo" data-animate>
+            <img src="assets/adithi.png" alt="Adithi M Shrouthy portrait" class="hero-portrait" />
+            <div class="hero-photo-info">
+              <p class="card-label">OPEN TO WORK</p>
+              <ul>
+                <li><strong>Location</strong><span> Germany (open to EMEA)</span></li>
+                <li><strong>Role</strong><span>Software Engineer, Quality Assuarnce</span></li>
+              </ul>
+            </div>
+            <div class="hero-stats">
+              <article>
+                <span>3 Years</span>
+                <p>QA, Fullstack</p>
+              </article>
+              <article>
+                <span>35%</span>
+                <p>Avg coverage lift</p>
+              </article>
+              <article>
+                <span>99.5%</span>
+                <p>CI/CD uptime</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel story" id="about" data-color="#ecf5ff">
+      <div class="shell story-grid">
+        <div class="story-copy" data-animate>
+          <p class="eyebrow">Story</p>
+          <h2>Engineer with a usability mindset and automation backbone.</h2>
+          <p>With a M.Sc. in Applied Computer Science (Usability Engineering & UX Design) after completing my B.E. in Computer Science at Visvesvaraya Technological University. My work spans React interfaces, Python/Flask services and Cypress/Selenium pipelines that align research goals with reliable delivery.</p>
+          <p>Whether I’m orchestrating Dockerized research, scaling S/4HANA Cloud test suites, I focus on documentation and measurable improvements. Outside of work I’m often exploring new cities, contributing to student initiatives, or prepping fitness challenges.</p>
+        </div>
+        <div class="story-list" data-animate>
+          <p class="card-label">Summary of Tasks</p>
+          <ul>
+            <li>Automate UI testing suites (Cypress, Selenium)</li>
+            <li>Design Dockerized environments with GitHub Actions/CI/CD to shrink onboarding time.</li>
+            <li>Prototype data and NLP platforms (BERT/T5/DeBERTa, Neo4j, Redis) for research-heavy teams.</li>
+            <li>Create documentation rituals, training, and usability testing programs that boost adoption.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel education" data-color="#f9f1ff" id="education">
+      <div class="shell">
+        <div class="section-heading" data-animate>
+          <p class="eyebrow">Education</p>
+          <h2>Continuous learning</h2>
+        </div>
+        <div class="edu-grid">
+          <article class="edu-card" data-animate>
+            <h3>Education</h3>
+            <h4>M.Sc. Applied Computer Science</h4>
+            <p>Usability Engineering & UX Design · SRH Hochschule Heidelberg · Oct 2023 - Oct 2025</p>
+            <h4>B.E. Computer Science</h4>
+            <p>Visvesvaraya Technological University, India · Aug 2017 – Aug 2021</p>
+          </article>
+          <article class="edu-card" data-animate>
+            <h3>Certifications</h3>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#extracurricular">Leadership</a></li>
-                <li><a href="#contact">Contact</a></li>
+              <li>Explore a Career as a Web Developer : LinkedIn</li>
+              <li>Explore a Career in Front-End Web Development :  LinkedIn</li>
+              <li>Generative AI at SAP: SAP</li>
+              <li>Test Automation Professional Certificate : LambdaTest</li>
+              <li>Certified SAFe® 5 Practitioner : Scaled Agile, Inc.</li>
             </ul>
+          </article>
+          <article class="edu-card" data-animate>
+            <h3>Extracurricular & Leadership</h3>
+            <ul>
+              <h4>Class Representative </h4>
+              <li>M.Sc. & B.E., liaison between students/faculty.</li>
+              <h4>NCC Cadet</h4>
+              <li>National Cadet Corps India (2011–2015): disaster relief, leadership, first aid.</li>
+              <h4>Volunteer Roles</h4>
+              <li>National Service Scheme (2018–2019) : social outreach & awareness drives.</li>
+              <li>Bharat Scouts & Guides (2009–2011) : civic/leadership programs.</li>
+            </ul>
+          </article>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Adithi M Shrouthy</h1>
-                <p class="title">Data-Centric Full-Stack Developer</p>
-                <p class="tagline">Empowering reliability, automation, and insights in modern platforms</p>
-                <p class="location">📍 Mannheim, Germany</p>
-                <div class="social-links">
-                    <a href="mailto:adithimshrouthy@gmail.com">✉️ Email</a>
-                    <a href="tel:+4917631549734">📱 +49 176 31549734</a>
-                    <a href="https://linkedin.com/in/adithimshrouthy" target="_blank">💼 LinkedIn</a>
-                    <a href="https://github.com/adithimanjunath" target="_blank">⚡ GitHub</a>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p>Full-stack developer with a strong data and quality-engineering foundation. I specialize in TypeScript/React, Node.js, Python/Flask, SQL/Neo4j, Redis, Docker, and CI/CD. I've built and shipped AI/NLP-powered web applications using BERT/T5/DeBERTa, graph-based routing systems, and automated test & performance pipelines that significantly improved coverage and reduced regressions.</p>
-                <br>
-                <p>Comfortable across the entire stack—API design, data modeling, ETL/automation, performance/observability—with a proven track record of delivering measurable improvements to reliability and developer velocity. Currently pursuing opportunities to build data-driven features and platforms with product teams across the EU.</p>
+    <section class="panel experience" id="resume" data-color="#fff4e7">
+      <div class="shell">
+        <p class="eyebrow">Experience</p>
+        <h2>Work Experiences</h2>
+        <div class="timeline">
+          <article class="timeline-item" data-animate>
+            <div class="timeline-meta">
+              <span>Nov 2025 – Current</span>
+              <span>SRH Hochschule · Heidelberg, Germany</span>
             </div>
+            <h3>Freelancing Lecturer | Computer Science</h3>
+            <p>Lecturing on Fundamental of Computer Science for Bsc. Students</p>
+          </article>
+          <article class="timeline-item" data-animate>
+            <div class="timeline-meta">
+              <span>Dec 2024 – Sep 2025</span>
+              <span>SAP SE · Walldorf, Germany</span>
+            </div>
+            <h3>Working Student | QA Automation (S/4HANA Cloud)</h3>
+            <p>Automated critical asset accounting test cases in S/4HANA Cloud using Cypress/Playwright, lifting coverage by 35% and cutting manual regression cycles by 25%. Reduced manual intervention by 40% through customer-scenario automation, aligned KPIs with release teams, and validated warehouse management workflows end-to-end.</p>
+          </article>
+          <article class="timeline-item" data-animate>
+            <div class="timeline-meta">
+              <span>Nov 2024 – Feb 2025</span>
+              <span>SRH Hochschule Heidelberg · Germany</span>
+            </div>
+            <h3>Research Assistant | DevOps & Tooling</h3>
+            <p>Built and maintained Dockerized development environments for student-led labs, shrinking setup from 5 hrs to 3 hrs (40% faster onboarding). Introduced npm dependency management and GitHub CI/CD, decreasing integration issues by 30% and accelerating release frequency.</p>
+          </article>
+          <article class="timeline-item" data-animate>
+            <div class="timeline-meta">
+              <span>Apr 2024 – Oct 2024</span>
+              <span>CWC Recruitment · Berlin (Remote)</span>
+            </div>
+            <h3>Working Student | UI & Test Engineer</h3>
+            <p>Refined UI components, lifting task completion success by 18% via usability testing, and designed Selenium + exploratory suites catching 15+ high-priority defects ahead of release. Improved cross-functional collaboration by aligning test readouts with business requirements, reducing acceptance delays by 20%.</p>
+          </article>
+          <article class="timeline-item" data-animate>
+            <div class="timeline-meta">
+              <span>Aug 2021 – Aug 2023</span>
+              <span>FIS Global · Bangalore, India</span>
+            </div>
+            <h3>Software Test Analyst | Performance & QA</h3>
+            <p>Executed performance tests across batch jobs, SOAP services, and REST APIs; improved response times by 30% across releases. Leveraged Dynatrace, AWR, and NMON to detect bottlenecks, reducing incident resolution time by 20%. Delivered 50+ functional/non-functional tests ensuring 95% traceability, cut defect leakage to production by 25%, and mentored new hires to reduce onboarding time by 30%.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Frontend</h3>
-                    <div class="skill-item">TypeScript/JavaScript</div>
-                    <div class="skill-item">React</div>
-                    <div class="skill-item">Next.js</div>
-                    <div class="skill-item">HTML/CSS</div>
-                    <div class="skill-item">Testing Library/Jest</div>
-                </div>
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <div class="div class="skill-item">Node.js/Express</div>
-                    <div class="skill-item">Python (Flask/FastAPI)</div>
-                    <div class="skill-item">REST APIs</div>
-                    <div class="skill-item">GraphQL</div>
-                </div>
-                <div class="skill-category">
-                    <h3>Data & ML</h3>
-                    <div class="skill-item">PostgreSQL/MySQL</div>
-                    <div class="skill-item">Neo4j (Graph)</div>
-                    <div class="skill-item">Redis</div>
-                    <div class="skill-item">pandas, scikit-learn</div>
-                    <div class="skill-item">ETL & data pipelines</div>
-                    <div class="skill-item">HuggingFace (BERT/T5/DeBERTa)</div>
-                </div>
-                <div class="skill-category">
-                    <h3>DevOps & QA</h3>
-                    <div class="skill-item">Docker</div>
-                    <div class="skill-item">GitHub Actions</div>
-                    <div class="skill-item">CI/CD</div>
-                    <div class="skill-item">Cypress/Playwright</div>
-                    <div class="skill-item">JMeter</div>
-                    <div class="skill-item">Postman</div>
-                </div>
-                <div class="skill-category">
-                    <h3>Cloud & Observability</h3>
-                    <div class="skill-item">Vercel, Render, Railway</div>
-                    <div class="skill-item">Kubernetes/OpenShift</div>
-                    <div class="skill-item">Dynatrace, AWR, NMON</div>
-                </div>
-            </div>
+    <section class="panel work" id="projects" data-color="#f1edff">
+      <div class="shell">
+        <p class="eyebrow">Projects</p>
+        <h2>Selected work</h2>
+        <div class="work-grid">
+          <article class="work-card" data-animate>
+            <p class="card-label">Master’s thesis</p>
+            <h3>Collaborative UX Research Platform</h3>
+            <p>Full-stack React/Flask platform enabling AI-assisted qualitative tagging, real-time collaboration, and automated reporting. Integrated BERT, T5, and DeBERTa for sentiment/summarization, cutting manual tagging by 50% and improving stakeholder engagement clarity by 40%.</p>
+            <ul>
+              <li>React</li>
+              <li>Flask</li>
+              <li>Transformer Models</li>
+            </ul>
+            <a class="text-link" href="https://github.com/adithimanjunath/collab-ux-research-platform">Github Link →</a>
+          </article>
+          <article class="work-card" data-animate>
+            <p class="card-label">Mobility intelligence</p>
+            <h3>Optimal Route Calculator</h3>
+            <p>Designed backend for public transport route planning using Neo4j graph algorithms and Redis caching. Improved query response time by 60% and added failover strategies for commuter peaks.</p>
+            <ul>
+              <li>Neo4j</li>
+              <li>Redis</li>
+              <li>Flask</li>
+            </ul>
+            <a class="text-link" href="https://github.com/adithimanjunath/Usecase-OptimalRoute">Github Link →</a>
+          </article>
+          <article class="work-card" data-animate>
+            <p class="card-label">Product build</p>
+            <h3>FitSync Web App</h3>
+            <p>Fitness tracking frontend with login, calorie tracker, and dashboard using React + Tailwind. Conducted usability and unit testing, achieving an 85% task success rate.</p>
+            <ul>
+              <li>Typescript</li>
+              <li>Tailwind</li>
+              <li>JWT Auth</li>
+            </ul>
+          </article>
+          <article class="work-card" data-animate>
+            <p class="card-label">Bachelor’s thesis</p>
+            <h3>Forest Fire Prediction System</h3>
+            <p>Co-developed ML pipelines (Logistic Regression, KNN, SVM, Random Forest) in Python to predict forest fire risk using environmental datasets. Published research, improved baseline accuracy by 15% through feature engineering and hyper-parameter tuning.</p>
+            <ul>
+              <li>Python</li>
+              <li>ML Ops</li>
+              <li>Data preprocessing</li>
+            </ul>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="container">
-            <h2>Professional Experience</h2>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <div class="experience-card">
-                        <div class="company">🏢 SAP SE <span class="badge-current">Current</span></div>
-                        <div class="role">Werkstudentin - QA Automation for S/4HANA Cloud</div>
-                        <div class="location">Walldorf, Germany</div>
-                        <div class="duration">📅 Dec 2024 – Sep 2025</div>
-                        <div class="summary">• Lifted test coverage +35%, cut regression cycles −25% with TypeScript/Cypress suites integrated to GitHub Actions
-• Automated customer scenarios, reduced manual intervention −40%, built validation workflows surfacing defects 2 sprints earlier</div>
-                    </div>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-card">
-                        <div class="company">🎓 SRH Hochschule</div>
-                        <div class="role">Research Assistant (DevOps/Tooling)</div>
-                        <div class="location">Heidelberg, Germany</div>
-                        <div class="duration">📅 Nov 2024 – Feb 2025</div>
-                        <div class="summary">• Dockerized dev environments (−40% onboarding time), introduced npm and CI/CD, accelerated releases and reduced integration issues −30%</div>
-                    </div>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-card">
-                        <div class="company">💼 CWC Recruitment</div>
-                        <div class="role">Working Student (Frontend & Test Engineering)</div>
-                        <div class="location">Berlin/Remote</div>
-                        <div class="duration">📅 Apr 2024 – Oct 2024</div>
-                        <div class="summary">• Refined UI/flows (+18% usability), built Selenium automation catching 15+ high-priority defects, reduced business delays −20%</div>
-                    </div>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-card">
-                        <div class="company">🏦 FIS Global</div>
-                        <div class="role">QA/Performance Engineer (Banking)</div>
-                        <div class="location">Bangalore, India</div>
-                        <div class="duration">📅 Aug 2021 – Aug 2023</div>
-                        <div class="summary">• Engineered batch+API performance harnesses (+30% response time), detected bottlenecks (−20% incident time), created 50+ test cases with 95% traceability, reduced critical prod leakage −25%</div>
-                    </div>
-                </div>
-            </div>
+    <section class="panel contact" id="contact" data-color="#eaf5ef">
+      <div class="shell contact-grid">
+        <div data-animate>
+          <p class="eyebrow">Collaborate</p>
+          <h2>Contact Form</h2>
+          <p>I'm always enthusiastic about connecting with people. Let’s chat about Technology, Full time roles, or freelance automation engagements across EMEA.</p>
+         
         </div>
+        <form class="contact-form" id="contact-form" data-animate>
+          <label>
+            <span>Name *</span>
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            <span>Email *</span>
+            <input type="email" name="email" placeholder="you@email.com" required />
+          </label>
+          <label>
+            <span>Message *</span>
+            <textarea name="message" placeholder="Message" required></textarea>
+          </label>
+          <button type="submit" class="btn primary">Send note</button>
+        </form>
+      </div>
     </section>
+  </main>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Collaborative UX Research Platform</h3>
-                    <p class="stack">React, Flask, Python, Docker, HuggingFace, GitHub Actions, Vercel</p>
-                    <p class="results">• Master's Thesis project
-• Full-stack app for real-time UX collaboration and AI tagging
-• Reduced manual effort by 50%, increased usability engagement by 40%
-• Achieved 99.5% uptime with automated monitoring</p>
-                </div>
-                <div class="project-card">
-                    <h3>Optimal Route Calculator</h3>
-                    <p class="stack">Flask, Neo4j (Graph Database), Redis</p>
-                    <p class="results">• Public transport routing system using graph algorithms
-• Implemented intelligent caching strategies
-• Reduced query latency by 60%</p>
-                </div>
-                <div class="project-card">
-                    <h3>Forest Fire Prediction System</h3>
-                    <p class="stack">Python, Machine Learning</p>
-                    <p class="results">• Bachelor's Thesis project
-• Benchmarked multiple ML models for fire prediction
-• Achieved 15% accuracy improvement over baseline
-• Published research paper</p>
-                </div>
-                <div class="project-card">
-                    <h3>FitSync Web App</h3>
-                    <p class="stack">React.js, Tailwind CSS, JWT Authentication</p>
-                    <p class="results">• Fitness tracking dashboard with user authentication
-• Modern, responsive UI with smooth animations
-• 85% usability success rate</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <footer class="site-footer">
+    <div class="shell">
+      <p>© 2025 Adithi M Shrouthy Building thoughtful systems with data.</p>
+    </div>
+  </footer>
 
-    <!-- Education Section -->
-    <section id="education">
-        <div class="container">
-            <h2>Education</h2>
-            <div class="education-grid">
-                <div class="education-card">
-                    <h3>M.Sc. Applied Computer Science</h3>
-                    <p class="institution">SRH Hochschule Heidelberg, Germany</p>
-                    <p class="years">Oct 2023 – Oct 2025</p>
-                    <p style="color: var(--gray); margin-top: 0.5rem; font-style: italic;">Specialization: Usability Engineering & UX Design</p>
-                </div>
-                <div class="education-card">
-                    <h3>B.E. Computer Science</h3>
-                    <p class="institution">Visvesvaraya Technological University, India</p>
-                    <p class="years">Aug 2017 – Aug 2021</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications">
-        <div class="container">
-            <h2>Certifications</h2>
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <h3>🎓 Generative AI at SAP</h3>
-                </div>
-                <div class="cert-card">
-                    <h3>🤖 Test Automation (LambdaTest)</h3>
-                </div>
-                <div class="cert-card">
-                    <h3>⚡ SAFe 5 Practitioner</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Extracurricular Section -->
-    <section id="extracurricular">
-        <div class="container">
-            <h2>Leadership & Extracurricular</h2>
-            <div class="extra-list">
-                <div class="extra-item">
-                    <strong>NCC Cadet (India)</strong> - First aid & disaster relief volunteer
-                </div>
-                <div class="extra-item">
-                    <strong>National Service Scheme</strong> - Community service volunteer
-                </div>
-                <div class="extra-item">
-                    <strong>Class & Guides Wing Leader</strong> - Student leadership roles
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <p>📧 <a href="mailto:adithimshrouthy@gmail.com">adithimshrouthy@gmail.com</a></p>
-                    <p>📱 <a href="tel:+4917631549734">+49 176 31549734</a></p>
-                    <p>💼 <a href="https://linkedin.com/in/adithimshrouthy" target="_blank">LinkedIn</a></p>
-                    <p>⚡ <a href="https://github.com/adithimanjunath" target="_blank">GitHub</a></p>
-                    <p>📍 Mannheim, Germany</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Show/hide navigation on scroll
-        let lastScrollTop = 0;
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > 100) {
-                navbar.classList.add('visible');
-            } else {
-                navbar.classList.remove('visible');
-            }
-            lastScrollTop = scrollTop;
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Observe experience items
-        document.querySelectorAll('.experience-item').forEach((item, index) => {
-            item.style.animationDelay = `${index * 0.2}s`;
-        });
-    </script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
 </body>
 </html>
