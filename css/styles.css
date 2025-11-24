@@ -160,7 +160,7 @@ h3 { font-size: 1.4rem; }
 
 p {
   color: var(--muted);
-  text-align: left;
+  text-align: justify;
 }
 
 .lede {
