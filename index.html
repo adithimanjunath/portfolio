@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adithi M Shrouthy Portfolio</title>
-  <meta name="description" content="Resume-style one page portfolio for Adithi M Shrouthy, data-focused full-stack developer and QA engineer based in Mannheim." />
+  <meta name="description" content="Portfolio for Adithi M Shrouthy — fullstack Software Engineer (PHP/Laravel, React) with a QA automation background, based in Mannheim, Germany." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -35,15 +35,15 @@
   </header>
 
   <main>
-    <section class="panel hero" id="home" data-color="#f4efe9">
+    <section class="panel hero" id="home" data-color="#F6F2EA">
       <div class="shell hero-layout">
         <div class="hero-text" data-animate>
-          <p class="eyebrow">Software Development · QA · Automation</p>
+          <p class="eyebrow">Fullstack Development · QA Automation · UX</p>
           <h1>
-            Building thoughtful systems with data.
+            I build products—and make sure they hold up.
           </h1>
           <p class="lede">
-            Motivated Software Engineer with  M.Sc. in Applied Computer Science (Usability Engineering & UX Design) and 3 years experience in Quality Assuarnce. I specialize in Frontend Development, Functional and Non-Functional Testing and CI/CD, pairing design thinking with testing rigor to lift coverage, accelerate release cadences.
+            Software Engineer at ZEW–MatchingTools, building fullstack features for KitaMatch in PHP/Laravel and React. M.Sc. in Applied Computer Science (Usability Engineering & UX Design), with a QA automation background spanning functional, non-functional, and CI/CD testing before moving into fullstack development. I also lecture on Software Engineering at SRH Hochschule Heidelberg.
           </p>
           <div class="hero-actions">
             <a class="btn primary" href="assets/resume.pdf">Resume</a>
@@ -54,11 +54,11 @@
           <div class="hero-card hero-photo" data-animate>
             <img src="assets/adithi.png" alt="Adithi M Shrouthy portrait" class="hero-portrait" />
             <div class="hero-photo-info">
-              <p class="card-label">OPEN TO WORK</p>
+              <p class="card-label status-badge"><span class="dot"></span>STATUS</p>
               <ul>
-                <li><strong>Location</strong><span> Germany (open to EMEA)</span></li>
-                <li><strong>Role</strong><span>Software Engineer, Quality Assuarnce</span></li>
-                <li><strong>Experience</strong><span><b>3 Years</b></span></li>
+                <li><strong>Role</strong><span>Software Engineer @ ZEW–MatchingTools</span></li>
+                <li><strong>Location</strong><span>Mannheim, Germany</span></li>
+                <li><strong>Experience</strong><span><b>4+ Years</b></span></li>
               </ul>
             </div>
             <div class="hero-stats">
@@ -85,17 +85,18 @@
       </div>
     </section>
 
-    <section class="panel story" id="about" data-color="#ecf5ff">
+    <section class="panel story" id="about" data-color="#E9ECFC">
       <div class="shell story-grid">
         <div class="story-copy" data-animate>
           <p class="eyebrow">Story</p>
           <h2>Engineer with a usability mindset and automation backbone.</h2>
-          <p>With an M.Sc. in Applied Computer Science (Usability Engineering & UX Design) following a B.E. in Computer Science from Visvesvaraya Technological University, I bridge design sensitivities with engineering rigor. My work spans React interfaces, Python/Flask services, and Cypress/Selenium pipelines that align research goals with reliable delivery.</p>
-          <p>Whether I’m orchestrating Dockerized research environments, scaling S/4HANA Cloud test suites, or building AI-assisted tooling, I focus on documentation and measurable improvements. Outside of work I’m often exploring new cities, contributing to student initiatives, or prepping fitness challenges.</p>
+          <p>With an M.Sc. in Applied Computer Science (Usability Engineering & UX Design) following a B.E. in Computer Science from Visvesvaraya Technological University, I bridge design sensitivities with engineering rigor. My work spans PHP/Laravel and React interfaces, Python/Flask services, and Cypress/Selenium pipelines that align research goals with reliable delivery.</p>
+          <p>Today I build fullstack features for KitaMatch, a childcare-matching platform, at ZEW–MatchingTools, while lecturing on Software Engineering at SRH Hochschule Heidelberg. Outside of work I'm often exploring new cities, contributing to student initiatives, or training for the next run.</p>
         </div>
         <div class="story-list" data-animate>
           <p class="card-label">Summary of Tasks</p>
           <ul>
+            <li>Build fullstack features in PHP/Laravel and React for production childcare-matching software.</li>
             <li>Automate UI testing suites (Cypress, Selenium)</li>
             <li>Design Dockerized environments with GitHub Actions/CI/CD to shrink onboarding time.</li>
             <li>Prototype data and NLP platforms (BERT/T5/DeBERTa, Neo4j, Redis) for research-heavy teams.</li>
@@ -105,18 +106,33 @@
       </div>
     </section>
 
-    <section class="panel experience" id="resume" data-color="#fff4e7">
+    <section class="panel experience" id="resume" data-color="#FBF0DE">
       <div class="shell">
         <p class="eyebrow">Experience</p>
         <h2>Work Experiences</h2>
         <div class="timeline">
+          <article class="timeline-item is-current" data-animate>
+            <div class="timeline-meta">
+              <span class="status-badge"><span class="dot"></span>Current</span>
+              <span>Feb 2026 – Present</span>
+              <span>ZEW – MatchingTools · Mannheim, Germany</span>
+            </div>
+            <h3>Software Engineer | Fullstack (PHP/Laravel, React)</h3>
+            <div class="timeline-list">
+              <p>Own front-end development for KitaMatch, a childcare-matching platform used by German municipalities, building interfaces against a Laravel backend and shipping the product's first self-service features within 4 months of joining.</p>
+              <p>Built an internal admin-tooling UI in PHP/Laravel that lets non-developers manage configuration directly, cutting reliance on developer intervention.</p>
+              <p>Drive UX/UI decisions across the product—consistency, usability, and accessibility—applying an M.Sc. UX-engineering background end to end.</p>
+            </div>
+          </article>
           <article class="timeline-item" data-animate>
             <div class="timeline-meta">
-              <span>Nov 2025 – Current</span>
-              <span>SRH Hochschule · Heidelberg, Germany</span>
+              <span>Nov 2025 – Dec 2025, May 2026 – Present</span>
+              <span>SRH Hochschule Heidelberg · Germany</span>
             </div>
-            <h3>Freelancing Lecturer | Computer Science</h3>
-            <li> Lecturing on Fundamental of Computer Science for Bsc. Students, covering programming, data structures, algorithms, and software development principles to foster foundational skills and critical thinking.</li>
+            <h3>Lecturer | Software Engineering & CS Fundamentals</h3>
+            <div class="timeline-list">
+              <p>Teach Software Engineering and CS Fundamentals to ~60 bachelor's students, designing the full 12-session curriculum, assignments, and final examination from scratch.</p>
+            </div>
           </article>
           <article class="timeline-item" data-animate>
             <div class="timeline-meta">
@@ -136,6 +152,7 @@
               <span>SRH Hochschule Heidelberg · Germany</span>
             </div>
             <h3>Research Assistant | DevOps & Tooling</h3>
+            <ul>
               <li>Dockerized dev environments; onboarding time 5h → 3h (−40%).</li>
               <li>Introduced npm dependency management + CI/CD; integration issues −30%, release cadence up.</li>
             </ul>
@@ -168,7 +185,7 @@
       </div>
     </section>
 
-    <section class="panel education" data-color="#f9f1ff" id="education">
+    <section class="panel education" data-color="#E7F5F1" id="education">
       <div class="shell">
         <div class="section-heading" data-animate>
           <p class="eyebrow">Education</p>
@@ -212,7 +229,7 @@
       </div>
     </section>
 
-    <section class="panel skills" id="skills" data-color="#f4faff">
+    <section class="panel skills" id="skills" data-color="#E9ECFC">
       <div class="shell">
         <p class="eyebrow">Skills</p>
         <h2>Tools across the stack.</h2>
@@ -227,7 +244,7 @@
               </svg>
             </div>
             <p class="skill-label">Full Stack</p>
-            <p>HTML · CSS · React.js · Python (Flask) · SQL · REST · Node.js</p>
+            <p>PHP · Laravel · HTML · CSS · React.js · Python (Flask) · SQL · REST · Node.js</p>
           </article>
           <article class="skill-card" data-animate>
             <div class="skill-icon">
@@ -265,7 +282,7 @@
       </div>
     </section>
 
-    <section class="panel work" id="projects" data-color="#f1edff">
+    <section class="panel work" id="projects" data-color="#E7F5F1">
       <div class="shell">
         <p class="eyebrow">Projects</p>
         <h2>Selected work</h2>
@@ -320,12 +337,12 @@
       </div>
     </section>
 
-    <section class="panel contact" id="contact" data-color="#eaf5ef">
+    <section class="panel contact" id="contact" data-color="#F6F2EA">
       <div class="shell contact-grid">
         <div class="contact-intro" data-animate>
           <p class="eyebrow">Collaborate</p>
           <h2>Let’s build something reliable together.</h2>
-          <p>I’m based in Mannheim and open to Full time opportunities, across EMEA in the field of Software Development and Quality Assurance. Reach out directly-no forms, just a quick email.</p>
+          <p>I'm a Software Engineer at ZEW–MatchingTools, based in Mannheim, working across fullstack development and QA. Always happy to connect on interesting engineering, UX, or automation work—no forms, just a quick email.</p>
         </div>
         <div class="contact-details">
           <article class="contact-card" data-animate>
@@ -343,7 +360,7 @@
 
   <footer class="site-footer">
     <div class="shell">
-      <p>© 2025 Adithi M Shrouthy Building thoughtful systems with data.</p>
+      <p>© 2026 Adithi M Shrouthy — building thoughtful, reliable systems.</p>
     </div>
   </footer>
 
